@@ -32,7 +32,7 @@ Spock
  	beats rock
  	beats scissors
  	loses to paper
- 	loses Spock
+ 	loses to lizard
 
 
 

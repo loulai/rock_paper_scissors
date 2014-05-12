@@ -14,39 +14,55 @@ describe("Rock-Paper-Scissors", function() {
     describe('rock', function() {
 
       it('should beat scissors', function() {
-
         player1.picks('rock');
         player2.picks('scissors');
         expect(game.winner()).toBe(player1);
-
       });
 
-      it('should lose to paper', function() {
+      it('should beat lizard', function() {
+        player1.picks('rock');
+        player2.picks('lizard');
+        expect(game.winner()).toBe(player1);
+      })
 
+      it('should lose to paper', function() {
         player1.picks('rock');
         player2.picks('paper');
         expect(game.winner()).toBe(player2);
-
       });
+
+      it('should lose to Spock', function() {
+        player1.picks('rock');
+        player2.picks('Spock');
+        expect(game.winner()).toBe(player2);
+      })
 
     });
 
     describe('paper', function() {
 
       it('should beat rock', function() {
-
         player1.picks('paper');
         player2.picks('rock');
         expect(game.winner()).toBe(player1);
+      });
 
+      it('should beat Spock', function() {
+        player1.picks('paper');
+        player2.picks('Spock');
+        expect(game.winner()).toBe(player1);
       });
 
       it('should lose to scissors', function() {
-
         player1.picks('paper');
         player2.picks('scissors');
         expect(game.winner()).toBe(player2);
+      });
 
+      it('should lose to lizard', function() {
+        player1.picks('paper');
+        player2.picks('lizard');
+        expect(game.winner()).toBe(player2);
       });
 
     });
@@ -54,22 +70,85 @@ describe("Rock-Paper-Scissors", function() {
     describe('scissors', function() {
 
       it('should beat paper', function() {
-
         player1.picks('scissors');
         player2.picks('paper');
         expect(game.winner()).toBe(player1);
+      });
 
+      it('should beat lizard', function() {
+        player1.picks('scissors');
+        player2.picks('lizard');
+        expect(game.winner()).toBe(player1);
       });
 
       it('should lose to rock', function() {
-
         player1.picks('scissors');
         player2.picks('rock');
         expect(game.winner()).toBe(player2);
+      });
 
+      it('should lose to Spock', function() {
+        player1.picks('scissors');
+        player2.picks('Spock');
+        expect(game.winner()).toBe(player2)
+      })
+
+    });
+
+    describe('lizard', function() {
+
+      it('should beat paper', function() {
+        player1.picks('lizard');
+        player2.picks('paper');
+        expect(game.winner()).toBe(player1)
+      });
+
+      it('should beat Spock', function() {
+        player1.picks('lizard');
+        player2.picks('Spock');
+        expect(game.winner()).toBe(player1)
+      });
+
+      it('should lose to rock', function() {
+        player1.picks('lizard');
+        player2.picks('rock');
+        expect(game.winner()).toBe(player2);
+      });
+
+      it('should lose to rock', function() {
+        player1.picks('lizard');
+        player2.picks('rock');
+        expect(game.winner()).toBe(player2);
       });
 
     });
+
+    describe('Spock', function() {
+      it('should beat rock', function() {
+        player1.picks('Spock');
+        player2.picks('rock');
+        expect(game.winner()).toBe(player1)
+      });
+
+      it('should beat scissors', function() {
+        player1.picks('Spock');
+        player2.picks('scissors');
+        expect(game.winner()).toBe(player1)
+      });
+
+      it('should lose to paper', function() {
+        player1.picks('Spock');
+        player2.picks('paper');
+        expect(game.winner()).toBe(player2);
+      });
+
+      it('should lose to lizard', function() {
+        player1.picks('Spock');
+        player2.picks('lizard');
+        expect(game.winner()).toBe(player2);
+      });
+      
+    })
 
   });
 
@@ -79,7 +158,7 @@ describe("Rock-Paper-Scissors", function() {
 
       it('should result in no winner', function() {
 
-        var drawGameResults = ['rock', 'paper', 'scissors'].map(function(x) {
+        var drawGameResults = ['rock', 'paper', 'scissors', 'lizard', 'Spock'].map(function(x) {
           player1.picks(x);
           player2.picks(x);
           return game.winner();
