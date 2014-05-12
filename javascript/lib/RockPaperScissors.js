@@ -28,3 +28,4 @@ Game.prototype.winner = function() {
   else 
   	return this.player2;
 };
+
