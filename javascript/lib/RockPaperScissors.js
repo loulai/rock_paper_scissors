@@ -1,5 +1,8 @@
+var PAIRS = function {
+	
+};
+
 function Player(name) {
-  // initialize
   this.name = name;
 };
 
@@ -13,5 +16,6 @@ function Game(player1, player2) {
 };
 
 Game.prototype.winner = function() {
-  return this.player1;
+  
+  return this.player2;
 };
